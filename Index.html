@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sanchita, please read carefully.</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 38px;
+    }
+    p {
+      font-size: 18px;
+      color: #555;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+      border: none;
+      transition: 0.2s;
+    }
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+    #yes:hover {
+      transform: scale(1.1);
+    }
+    #no {
+      background-color: #999;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sanchita, will you be my Valentine? 😌</h1>
+
+  <p>Here’s what I was doing when you were “living”…<br>
+  Building this instead.</p>
+
+  <button id="yes" onclick="celebrate()">Fine. Yes.</button>
+  <button id="no" onmouseover="moveButton()">No.</button>
+
+  <script>
+    function moveButton() {
+      var button = document.getElementById("no");
+      button.style.top = Math.random() * (window.innerHeight - 100) + "px";
+      button.style.left = Math.random() * (window.innerWidth - 100) + "px";
+    }
+
+    function celebrate() {
+      document.body.innerHTML = "<h1>Correct answer. 🫶</h1><p>See? I knew you had taste.</p>";
+    }
+  </script>
+
+</body>
+</html>
