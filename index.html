@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sanchi, please read carefully.</title>
+
   <style>
     body {
       text-align: center;
@@ -9,14 +11,18 @@
       background-color: #fff0f5;
       padding-top: 80px;
       overflow: hidden;
+      margin: 0;
     }
+
     h1 {
-      font-size: 38px;
+      font-size: 34px;
     }
+
     p {
       font-size: 18px;
       color: #555;
     }
+
     button {
       padding: 15px 30px;
       font-size: 18px;
@@ -24,15 +30,18 @@
       cursor: pointer;
       border-radius: 10px;
       border: none;
-      transition: 0.2s;
+      transition: 0.2s ease;
     }
+
     #yes {
       background-color: #ff4d6d;
       color: white;
     }
+
     #yes:hover {
       transform: scale(1.1);
     }
+
     #no {
       background-color: #999;
       color: white;
@@ -40,6 +49,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <h1>Sanchi, will you be my Valentine? 😌</h1>
@@ -50,14 +60,34 @@
   <button id="no" onmouseover="moveButton()">No.</button>
 
   <script>
+    var noSize = 1;
+
     function moveButton() {
       var button = document.getElementById("no");
-      button.style.top = Math.random() * (window.innerHeight - 100) + "px";
-      button.style.left = Math.random() * (window.innerWidth - 100) + "px";
+
+      // Shrink the button
+      noSize -= 0.1;
+      if (noSize < 0.2) {
+        noSize = 0.2; // minimum size so it doesn’t disappear completely
+      }
+      button.style.transform = "scale(" + noSize + ")";
+
+      // Keep it inside screen
+      var maxX = window.innerWidth - button.offsetWidth;
+      var maxY = window.innerHeight - button.offsetHeight;
+
+      button.style.left = Math.random() * maxX + "px";
+      button.style.top = Math.random() * maxY + "px";
     }
 
     function celebrate() {
-      document.body.innerHTML = "<h1>Correct answer. 🫶</h1><p>See? I knew you had taste.</p>";
+      document.body.innerHTML = `
+        <h1>Correct answer. 🫶</h1>
+        <p>See? I knew you had taste.</p>
+        <p style="font-size:14px; color:gray;">
+          Also, the “No” button was fighting for its life.
+        </p>
+      `;
     }
   </script>
 
